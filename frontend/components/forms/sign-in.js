@@ -9,8 +9,9 @@ import {
   Input
 } from "@chakra-ui/core";
 import { setCookie } from "nookies";
+import { withRouter } from 'next/router'
 
-const SignInForm = () => {
+const SignInForm = ({ router }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -48,6 +49,10 @@ const SignInForm = () => {
         maxAge: 30 * 24 * 60 * 60,
         path: "/"
       });
+
+    router.push("/products");
+
+    
     }
   };
 
@@ -103,4 +108,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default withRouter(SignInForm);

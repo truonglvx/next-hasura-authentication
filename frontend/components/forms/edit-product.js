@@ -96,6 +96,9 @@ const EditProductForm = ({ router }) => {
         productId: router.query.productId
       }
     });
+
+    router.push("/products");
+    
   };
 
   return (
